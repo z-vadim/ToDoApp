@@ -58,7 +58,10 @@ app.delete('/api/todos/:todo_id', function(req, res){
 		});
 	});
 });
-
+//----- frontend -----
+app.get('*', function(req, res){
+	res.sendfile('./public/index.html');
+});
 
 //===== listen =====
 app.listen(3000);
