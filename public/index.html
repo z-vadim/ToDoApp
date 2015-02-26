@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="ToDoApp">
+	<head>
+		<!-- bootstrap styling -->
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+		<!-- jquery -->
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		<!-- angular -->
+		<script src="lib/angular/angular.min.js"></script>
+		<!-- main script -->
+		<script src="core.js"></script>
+	</head>
+	<body ng-controller="mainController">
+		<div class="container">
+			<div class="jumbotron text-center">
+				<h1>___<span class="label label-info">{{todos.length}}</span></h1>
+			</div>
+			
+			<!-- list -->
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<!-- loop -->
+					<div class="checkbox" ng-repeat="todo in todos">
+						<label>
+							<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{todo.text}}
+						</label>
+					</div>
+				</div>
+			</div>
+			
+			<!-- form -->
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text-center">
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control input-lg text-center" placeholder="Add" ng-model="formData.text">
+							<button type="submit" class="btn btn-primary" ng-click="createTodo()">add</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+		</div> <!-- endContainer -->
+	</body>
+</html>
